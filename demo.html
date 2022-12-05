@@ -1,6 +1,8 @@
 <!DOCTYPE html><html>
 
-  <head><link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" /></head>
+  <head>
+    <link rel="shortcut icon" href="fcarb favicon verde.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" /></head>
     <title>FCARB: Ferramenta de análise de emissão de carbono em projetos de arquitetura</title>
     <style>
       * {
@@ -103,7 +105,8 @@ function updatechart() {
     
    <div class="v224_881"><div class="v224_882"></div><div class="v224_883"></div><a href="home.html" class="v224_884">home</a><a href="sobre.html" class="v224_885">sobre</a><a href="dados.html" class="v224_886">dados</a><div class="v224_888"></div><span class="v224_889">Dados básicos do projeto</span><div class="v224_891"></div><span class="v224_892">Resultados</span><span class="v224_895">Para gerar os resultados, escolha uma das tipologias abaixo, considerando os padrões CUB. Leia mais na seção “sobre”.</span><div class="v224_901"></div><div class="name"></div><input class="v235_1172" required maxlength="6"></input><span class="v235_1173">Área do pavimento térreo (m²):</span><input class="v235_1168" required maxlength="6"></input><span class="v235_1169">Número de pavimentos tipo:</span><input class="v235_1166" required maxlength="6"></input><span class="v235_1167">Área por pavimento tipo (m²):</span>
    <input type="number" value= "100" id="areatotal" class="v224_1341" placeholder="Ex.: 100" required maxlength="6" onchange="updatechart()"></input>
-   <span class="v224_1342">Área total construída (m²):</span><div class="v238_840"></div><button name="Residencial" class="v238_841">Residencial</button><div class="v238_846"></div><button class="v238_847">Comercial</button><div class="v238_848"></div><button class="v238_849">HIS</button><div class="v224_887"></div><div id="container"></div></div></div>
+   <span class="v224_1342">Área total construída (m²):</span><div class="v238_840"></div><button name="Residencial" class="v238_841">Residencial</button><div class="v238_846"></div><button class="v238_847">Comercial</button><div class="v238_848"></div><button class="v238_849">HIS</button><div class="v224_887"></div><div id="container"></div>
+   <div class="v102_logo"></div></div></div>
 
   <!-- LINKS
     Charts Docs - https://www.chartjs.org/docs/latest/
@@ -140,7 +143,6 @@ body {
         align-items: left;
         justify-content: left;
         
-        
       }
       .chartBox {
         width: 850px;
@@ -148,9 +150,25 @@ body {
         border-radius: 20px;
         border: solid 3px rgba(0,150,57,1);
         background: white;
+        min-width: 0
         
         
       }
+ .v102_logo {
+  width: 307px;
+  height: 128px;
+  background-image: url('logo fcarb.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 8px;
+  left: 21px;
+  overflow: hidden;
+  
+  }     
+
 .v224_880 {
   width: 100%;
   height: 1020px;
@@ -191,7 +209,7 @@ body {
 .v224_883 {
   width: 100%;
   height: 144px;
-  background: rgba(255,255,255,1);
+  background: rgba(230,245,235,1);
   opacity: 1;
   position: absolute;
   top: 0px;
