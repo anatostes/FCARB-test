@@ -1,116 +1,326 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="fcarb favicon verde.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=devide width, initial-scale=1">
+      </head>
+<title>FCARB: Ferramenta de análise de emissão de carbono em projetos de arquitetura</title>
+<body>
+  <div class="v102_48"></div><a href="home.html" class="v102_30">home</a><a href="demo.html" class="v102_31">demo</a><a href="dados.html" class="v102_32">dados</a>
+  <div class="v102_44"></div>
+  <span class="titulo1">Como funciona</span><span class="titulo2">Base de dados</span><span class="titulo3">Sobre a aplicação da ACV</span><span class="titulo4">Escolha da tipologia</span>
+  <span class="conteudo1">A proposta da ferramenta é a geração de valores estimados de emissão de CO2, no escopo de edificações padronizadas entre os tipos residencial, comercial e de interesse social, utilizando dados de entrada simples. São premissas da ferramenta:<br>
 
-  <head><link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" /></head>
-    <title>FCARB: Ferramenta de análise de emissão de carbono em projetos de arquitetura</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-      }
-      .chartMenu {
-        width: 100vw;
-        height: 40px;
-        background: #1A1A1A;
-        color: rgba(230,245,235,1);
-      
-      }
-      .chartMenu p {
-        padding: 10px;
-        font-size: 20px;
+    a) que a interface seja simples, de fácil entendimento;<br>
+    b) que não seja necessária sua instalação, ou seja, que seja acessível de forma online via browser (navegador);<br>
+    c) o uso de dados brasileiros provindos do Sidac;<br>
+    d) que os resultados sejam facilmente interpretados pelos usuários.<br>
 
-      }
-      .chartCard {
-        width: 100vw;
-        height: calc(100vh - 40px);
-        background: rgba(230,245,235,1);;
-        display: flex;
-        position: absolute;
-        left: 813px;
-        top: 300px;
-        align-items: center;
-        justify-content: center;
-      }
-      .chartBox {
-        width: 80%;
-        padding: 20px;
-        border-radius: 20px;
-        border: solid 3px rgba(102,192,136,1);
-        background: white;
-      }
-    </style>
-  </head>
-  <body>
-    
-    <div class="chartCard">
-      <div class="chartBox">
-        <canvas id="myChart"></canvas>
-      </div>
-    </div>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-    // setup 
-    const data = {
-      labels: ['Aço CA-50', 'Concreto', 'Cimento', 'Areia', 'Brita', 'Compensado', 'Bloco cerâmico', 'Bloco de concreto'],
-      datasets: [{
-        label: 'Weekly Sales',
-        data: [18, 12, 6, 9, 12, 3, 9, 2],
-        backgroundColor: [
-          'rgba(255, 26, 104, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(0, 0, 0, 0.2)',
-          'rgba(0, 90, 60, 0.4)'
-        ],
-        borderColor: [
-          'rgba(255, 26, 104, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-          'rgba(0, 0, 0, 1)',
-          'rgba(0, 90, 60, 2)'
-        ],
-        borderWidth: 1
-      }]
-    };
-
-    // config 
-    const config = {
-      type: 'doughnut',
-      data,
-      options: {
-      
-        aspectRatio: 2
-      }
-    };
-
-    // render init block
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
-  </script>
-
-<div class="v224_881">
-  </body>
-  </html> <br/><br/> <style>* {
-    box-sizing: border-box;
+Para a construção matemática dessa estimativa, foi necessário relacionar a quantidade de insumos por m² de construção (em kg) com a média de CO2 equivalente (CO2 eq) referente a 1 kg de cada insumo (em kg/kg). Desse modo, tendo como dado de entrada a área total da construção, em m², o papel da ferramenta se resume a operações matemáticas simples a partir dos dados de quantidade de insumo provenientes da NBR 12721:2006 e dos dados de emissão de CO2 provenientes do Sidac.<br>
+O desenvolvimento front end da FCARB foi feito em HTML, CSS e JavaScript, utilizando o Figma para a construção da interface gráfica, o Visual Studio Code para edição do código-fonte e o Vercel para deploy.
+</span>
+<span class="conteudo2">Dados primários são os coletados diretamente nos locais de produção. Apesar de mais recomendáveis, demandam maior tempo e recursos financeiros. Por este motivo, este trabalho utiliza dados secundários do banco de dados Sidac (Sistema de Informação do Desempenho Ambiental da Construção), a qual foi dada prioridade em relação a outras bases de dados como ecoinvent ou ICE, devido à premissa de  uso de dados brasileiros para a construção da ferramenta. Além disso, o Sidac possui dados mais completos e atualizados em relação às outras bases. Tais considerações são importantes para garantir que a estimativa gerada pela ACV tenha um contexto geográfico, tecnológico e temporal.
+</span>
+<span class="conteudo3">As simulações feitas na FCARB consideram uma abordagem de ACV do berço ao portão (A1-A3), incluindo, portanto, as primeiras etapas do ciclo de vida das edificações, relativas à produção: extração de matéria prima (A1), transporte (A2) e fabricação (A3).<br>
+  A categoria de impacto escolhida para análise foi o potencial de aquecimento global, relacionado ao carbono incorporado da edificação. O termo “carbono incorporado” refere-se à soma dos impactos das emissões de gases de efeito estufa (GEE) relacionadas a um material ao longo de seu ciclo de vida.<br>
+  
+   Em relação às suposições feitas para a modelagem da ACV, foi considerado:<br>
+  · Para a quantificação dos materiais estruturais, a família de insumos completa de cada material listado na tabela de lotes básicos (SINDUSCON/MG, 2007);<br>
+       · Massa específica do concreto de 25 MPa = 2500 kg/m³;<br>
+       · Massa específica da areia média = 2700 kg/m³;<br>
+       · Massa específica da brita nº 2 = 2650 kg/m³;<br>
+       · Peso de 2.1 kg/un. do bloco cerâmico de 9 x 19 x 19 cm, segundo o Sidac;<br>
+       · Peso de 9.4 kg/un. do bloco de concreto de 14 x 19 x 39 cm, segundo o Sidac.
+</span>
+<span class="conteudo4">Nesta primeira versão da FCARB, três tipologias, R8-N, CSL-8 e PIS, são as opções disponíveis para geração de estimativas de impacto ambiental na ferramenta. Todas fazem referência aos projetos-padrão caracterizados na ABNT NBR 12721:2006, sendo a primeira relativa a um projeto residencial multifamiliar, a segunda a um projeto comercial de salas e lojas, e, por fim, a terceira a um projeto de interesse social. Cabe ao usuário escolher entre as tipologias disponíveis de acordo com a que melhor se encaixa com o âmbito do seu projeto, tendo em mente que a estimativa feita na simulação terá como base o quantitativo de insumos por m² determinada pela norma.
+</span>
+<a href="https://www.linkedin.com/in/ana-carolina-tostes/"><img src="iconelinkedin.png" class="linkedin"></a>
+<a href="https://github.com/anatostes"><img src="iconegithub.png" class="github"></a>
+// parte de baixo
+<div class="linha"></div>
+<a href="https://www.linkedin.com/in/ana-carolina-tostes/"><img src="fotominha.PNG" class="fotominha"></a>
+<span class="nome">ANA CAROLINA ROCHA TOSTES DE OLIVEIRA</span>
+<span class="descrição">Estudante de arquitetura e desenvolvedora da FCARB</span>
+<span class="contato">e-mail: ana.tostes@fau.ufrj.br<br>
+  Rio de Janeiro, Brasil</span>
+<span class="textofinal">A FCARB foi desenvolvida como um projeto inidividual de Trabalho Final de Graduação em Arquitetura e Urbanismo na Universidade Federal do Rio de Janeiro (UFRJ), em 2022. Agradeço aos meus orientadores Thiago Melo Grabois e Lucas Rosse Caldas, que me ajudaram e incentivaram não apenas nesse projeto, mas em vários desafios desde a iniciação científica. Por ser minha primeira experiência com programação, as funcionalidades da ferramenta estão limitadas nesta versão de testes. Contudo, este é um projeto que pretendo continuar a desenvolver na pós-graduação. Todo o código está disponivel na minha página no GitHub para acesso público. Espero que essa ferramenta contribua para a educação de futuros arquitetos urbanistas na compreensão do impacto dos materiais de construção, e que inspire a criação de novas metodologias aplicáveis ao processo projetual.
+</span>
+</body>
+</html> <br/><br/> <style>* {
+  box-sizing: border-box;
   }
   body {
     font-size: 14px;
+  }
+
+  .v102_44 {
+    width: 307px;
+    height: 128px;
+    background-image: url('logo fcarb.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 8px;
+    left: 21px;
+    overflow: hidden;
+  }
+  .v102_48 {
+    width: 100%;
+    height: 144px;
+     background: rgba(230,245,235,1);
+     opacity: 1;
+     position: absolute;
+     top: 0px;
+     left: 0px;
+    overflow: hidden;
+  }
+  .v102_30 {
+    text-decoration: none;
+    width: 82px;
+    color: rgba(0,150,57,1);
+    position: absolute;
+    top: 63px;
+    left: 985px;
+    font-family: Roboto;
+    font-weight: Regular;
+    font-size: 20px;
+    opacity: 1;
+    text-align: center;
+  }
+  .v102_31 {
+    text-decoration: none;
+    width: 82px;
+    color: rgba(0,150,57,1);
+    position: absolute;
+    top: 63px;
+    left: 1279px;
+    font-family: Roboto;
+    font-weight: Regular;
+    font-size: 20px;
+    opacity: 1;
+    text-align: center;
+  }
+  .v102_32 {
+    text-decoration: none;
+    width: 82px;
+    color: rgba(0,150,57,1);
+    position: absolute;
+    top: 63px;
+    left: 1132px;
+    font-family: Roboto;
+    font-weight: Regular;
+    font-size: 20px;
+    opacity: 1;
+    text-align: center;
+
+  }
+  .titulo1 {
+    position: absolute;
+   width: 689px;
+   height: 24px;
+   left: 78px;
+   top: 177px;
+   font-family: 'Roboto';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 19px;
+   text-align: justify;
+   color: #009639;
+
+  }
+  .titulo2 {
+    position: absolute;
+   width: 689px;
+   height: 24px;
+   left: 78px;
+   top: 450px;
+   font-family: 'Roboto';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 19px;
+   text-align: justify;
+   color: #009639;
+
+  }
+  .titulo3 {
+    position: absolute;
+   width: 689px;
+   height: 24px;
+   left: 781px;
+   top: 177px;
+   font-family: 'Roboto';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 19px;
+   text-align: justify;
+   color: #009639;
+
+  }
+  .titulo4 {
+    position: absolute;
+   width: 689px;
+   height: 24px;
+   left: 781px;
+   top: 450px;
+   font-family: 'Roboto';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 19px;
+   text-align: justify;
+   color: #009639;
+
+  }
+  .conteudo1 {
+    position: absolute;
+   width: 621px;
+   height: 109px;
+   left: 78px;
+   top: 215px;
+   font-family: 'Roboto light';
+   font-style: normal;
+   font-weight: 300;
+   font-size: 12px;
+   line-height: 14px;
+   text-align: justify;
+   color: #66C088;
+  }
+  .conteudo2 {
+    position: absolute;
+   width: 621px;
+   height: 109px;
+   left: 78px;
+   top: 488px;
+   font-family: 'Roboto light';
+   font-style: normal;
+   font-weight: 300;
+   font-size: 12px;
+   line-height: 14px;
+   text-align: justify;
+   color: #66C088;
+
+  }
+  .conteudo3 {
+    position: absolute;
+   width: 621px;
+   height: 285px;
+   left: 781px;
+   top: 215px;
+   font-family: 'Roboto light';
+   font-style: normal;
+   font-weight: 300;
+   font-size: 12px;
+   line-height: 14px;
+   text-align: justify;
+   color: #66C088;
+  }
+  .conteudo4 {
+    position: absolute;
+   width: 621px;
+   height: 109px;
+   left: 781px;
+   top: 488px;
+   font-family: 'Roboto light';
+   font-style: normal;
+   font-weight: 300;
+   font-size: 12px;
+   line-height: 14px;
+   text-align: justify;
+   color: #66C088;
+  }
+.linkedin {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  top: 722px;
+  left: 190px;
 }
-.v224_881 {
+.github {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  top: 722px;
+  left: 219px;
+}
+.linha {
   width: 100%;
-  height: 1020px;
-  background: rgba(230,245,235,1);
-  opacity: 0.5;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
+   height: 4px;
+   background: #009639;
+   opacity: 1;
+   position: absolute;
+   top: 650px;
+   left: 0px;
+   overflow: hidden;
+
 }
+.fotominha {
+  position: absolute;
+  width: 84px;
+  height: 84px;
+  top: 670px;
+  left: 90px;
+}
+.nome {
+    position: absolute;
+   width: 343px;
+   height: 38px;
+   left: 190px;
+   top: 674px;
+   font-family: 'Roboto light';
+   font-style: normal;
+   font-weight: 200;
+   font-size: 14px;
+   line-height: 16px;
+   text-align: justify;
+   color: #000000;
+  }
+  .descrição {
+    position: absolute;
+   width: 305px;
+   height: 38px;
+   left: 190px;
+   top: 693px;
+   font-family: 'Roboto light';
+   font-style: normal;
+   font-weight: 200;
+   font-size: 12px;
+   line-height: 14px;
+   text-align: justify;
+   color: #000000;
+  }
+  .contato {
+    position: absolute;
+   width: 186px;
+   height: 16px;
+   left: 250px;
+   top: 719px;
+   font-family: 'Roboto light';
+   font-style: normal;
+   font-weight: 100;
+   font-size: 10px;
+   line-height: 12px;
+   text-align: justify;
+   color: #000000;
+  }
+  .textofinal {
+    position: absolute;
+   width: 876px;
+   height: 109px;
+   left: 526px;
+   top: 674px;
+   font-family: 'Roboto light';
+   font-style: normal;
+   font-weight: 300;
+   font-size: 12px;
+   line-height: 14px;
+   text-align: justify;
+   color: #66C088;
+  }
+</style>
