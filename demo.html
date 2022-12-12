@@ -9,104 +9,238 @@
         margin: 0;
         padding: 0;
         font-family: sans-serif;
+        box-sizing: border-box;
       }
      
     </style>
   <body> 
-    <div class="chartCard">
-      <div class="chartBox">
-        <canvas id="myChart"></canvas>
+    
+      <div class="resultBox">
+        
+       
       </div>
-    </div>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
+    
     <script>
-    // setup 
-    const data = {
-      labels: ['Aço CA-50', 'Concreto', 'Cimento', 'Areia', 'Brita', 'Compensado', 'Bloco cerâmico', 'Bloco de concreto'],
-      datasets: [{
-        label: 'Impacto',
-        data: [100, 12, 6, 9, 12, 3, 9, 2],
-        backgroundColor: [
-          'rgba(255, 26, 104, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(0, 0, 0, 0.2)',
-          'rgba(0, 90, 60, 0.4)'
-        ],
-        borderColor: [
-          'rgba(255, 26, 104, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-          'rgba(0, 0, 0, 1)',
-          'rgba(0, 90, 60, 2)'
-        ],
-        borderWidth: 1
-        
-      },{
-        label: 'Impacto',
-        data: [100, 12, 6, 9, 12, 3, 9, 2],
-        backgroundColor: [
-          'rgba(255, 26, 104, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(0, 0, 0, 0.2)',
-          'rgba(0, 90, 60, 0.4)'
-        ],
-        borderColor: [
-          'rgba(255, 26, 104, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-          'rgba(0, 0, 0, 1)',
-          'rgba(0, 90, 60, 2)'
-        ],
-        borderWidth: 1
-        
-      }]
-    };
-
-    // config 
-    const config = {
-      type: 'doughnut',
-      data,
-      options: {
-       cutout: '85%',
-       borderRadius: 20,  
-       radius: 250, 
-      }
-    };
-    //configurando para o grafico ficar dinamico
-var areatotal = document.getElementById("areatotal");
+    
 
 
-    // render init block
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
+function multiplyBy1() {
+  num1 = document.getElementById("areatotal").value;
+  num2 = 16.290085;
+  document.getElementById("resultaço").innerHTML = (num1 * num2).toFixed(2);
+  num3 = 58.236;
+  document.getElementById("resultconcreto").innerHTML = (num1 * num3).toFixed(2);
+  num4 = 45.080922;
+  document.getElementById("resultcimento").innerHTML = (num1 * num4).toFixed(2);
+  num5 = 0.001323;
+  document.getElementById("resultareia").innerHTML = (num1 * num5).toFixed(2);
+  num6 = 1.76755;
+  document.getElementById("resultbrita").innerHTML = (num1 * num6).toFixed(2);
+  num7 = 9.0672426;
+  document.getElementById("resultcompensado").innerHTML = (num1 * num7).toFixed(2);
+  num8 = 14.170376;
+  document.getElementById("resultblceramico").innerHTML = (num1 * num8).toFixed(2);
+  num9 = 14.170376;
+  document.getElementById("resultblconcreto").innerHTML = (num1 * num9).toFixed(2);
 
-function updatechart() {
-  var updateValues = [areatotal.value,  12, 6, 9, 12, 3, 9, 2]
-  ctx.data.datasets[0].data = updateValues;
-  ctx.update();
+  num31 = document.getElementById("areadopav").value;
+  num32 = 16.290085;
+  document.getElementById("resultaço4").innerHTML = (num31 * num32).toFixed(2);
+  num33 = 58.236;
+  document.getElementById("resultconcreto4").innerHTML = (num31 * num33).toFixed(2);
+  num34 = 45.080922;
+  document.getElementById("resultcimento4").innerHTML = (num31 * num34).toFixed(2);
+  num35 = 0.001323;
+  document.getElementById("resultareia4").innerHTML = (num31 * num35).toFixed(2);
+  num36 = 1.76755;
+  document.getElementById("resultbrita4").innerHTML = (num31 * num36).toFixed(2);
+  num37 = 9.0672426;
+  document.getElementById("resultcompensado4").innerHTML = (num31 * num37).toFixed(2);
+  num38 = 14.170376;
+  document.getElementById("resultblceramico4").innerHTML = (num31 * num38).toFixed(2);
+  num39 = 14.170376;
+  document.getElementById("resultblconcreto4").innerHTML = (num31 * num39).toFixed(2);
 }
+function multiplyBy2() {
+  num1 = document.getElementById("areatotal").value;
+  num12 = 22.015035;
+  document.getElementById("resultaço2").innerHTML = (num1 * num12).toFixed(2);
+  num13 = 78.492;
+  document.getElementById("resultconcreto2").innerHTML = (num1 * num13).toFixed(2);
+  num14 = 39.182226;
+  document.getElementById("resultcimento2").innerHTML = (num1 * num14).toFixed(2);
+  num15 = 0.001134;
+  document.getElementById("resultareia2").innerHTML = (num1 * num15).toFixed(2);
+  num16 = 1.18285;
+  document.getElementById("resultbrita2").innerHTML = (num1 * num16).toFixed(2);
+  num17 = 14.3396;
+  document.getElementById("resultcompensado2").innerHTML = (num1 * num17).toFixed(2);
+  num18 = 10.587952;
+  document.getElementById("resultblceramico2").innerHTML = (num1 * num18).toFixed(2);
+  num19 = 0.54549;
+  document.getElementById("resultblconcreto2").innerHTML = (num1 * num19).toFixed(2);
+
+  num41 = document.getElementById("areatotal").value;
+  num42 = 22.015035;
+  document.getElementById("resultaço5").innerHTML = (num41 * num42).toFixed(2);
+  num43 = 78.492;
+  document.getElementById("resultconcreto5").innerHTML = (num41 * num43).toFixed(2);
+  num44 = 39.182226;
+  document.getElementById("resultcimento5").innerHTML = (num41 * num44).toFixed(2);
+  num45 = 0.001134;
+  document.getElementById("resultareia5").innerHTML = (num41 * num45).toFixed(2);
+  num46 = 1.18285;
+  document.getElementById("resultbrita5").innerHTML = (num41 * num46).toFixed(2);
+  num47 = 14.3396;
+  document.getElementById("resultcompensado5").innerHTML = (num41 * num47).toFixed(2);
+  num48 = 10.587952;
+  document.getElementById("resultblceramico5").innerHTML = (num41 * num48).toFixed(2);
+  num49 = 0.54549;
+  document.getElementById("resultblconcreto5").innerHTML = (num41 * num49).toFixed(2);
+}
+function multiplyBy3() {
+  num1 = document.getElementById("areatotal").value;
+  num22 = 5.71008;
+  document.getElementById("resultaço3").innerHTML = (num1 * num22).toFixed(2);
+  num23 = 22.788;
+  document.getElementById("resultconcreto3").innerHTML = (num1 * num23).toFixed(2);
+  num24 = 28.18419;
+  document.getElementById("resultcimento3").innerHTML = (num1 * num24).toFixed(2);
+  num25 = 0.000756;
+  document.getElementById("resultareia3").innerHTML = (num1 * num25).toFixed(2);
+  num26 = 0;
+  document.getElementById("resultbrita3").innerHTML = (num1 * num26).toFixed(2);
+  num27 = 7.06698;
+  document.getElementById("resultcompensado3").innerHTML = (num1 * num27).toFixed(2);
+  num28 = 0;
+  document.getElementById("resultblceramico3").innerHTML = (num1 * num28).toFixed(2);
+  num29 = 7.9344;
+  document.getElementById("resultblconcreto3").innerHTML = (num1 * num29).toFixed(2);
+
+  num51 = document.getElementById("areatotal").value;
+  num52 = 5.71008;
+  document.getElementById("resultaço6").innerHTML = (num51 * num52).toFixed(2);
+  num53 = 22.788;
+  document.getElementById("resultconcreto6").innerHTML = (num51 * num53).toFixed(2);
+  num54 = 28.18419;
+  document.getElementById("resultcimento6").innerHTML = (num51 * num54).toFixed(2);
+  num55 = 0.000756;
+  document.getElementById("resultareia6").innerHTML = (num51 * num55).toFixed(2);
+  num56 = 0;
+  document.getElementById("resultbrita6").innerHTML = (num51 * num56).toFixed(2);
+  num57 = 7.06698;
+  document.getElementById("resultcompensado6").innerHTML = (num51 * num57).toFixed(2);
+  num58 = 0;
+  document.getElementById("resultblceramico6").innerHTML = (num51 * num58).toFixed(2);
+  num59 = 7.9344;
+  document.getElementById("resultblconcreto6").innerHTML = (num51 * num59).toFixed(2);
+}
+
+const AçoFinal = document.getElementById("result").value;
+
     </script>
     
-   <div class="v224_881"><div class="v224_882"></div><div class="v224_883"></div><a href="home.html" class="v224_884">home</a><a href="sobre.html" class="v224_885">sobre</a><a href="dados.html" class="v224_886">dados</a><div class="v224_888"></div><span class="v224_889">Dados básicos do projeto</span><div class="v224_891"></div><span class="v224_892">Resultados</span><span class="v224_895">Para gerar os resultados, escolha uma das tipologias abaixo, considerando os padrões CUB. Leia mais na seção “sobre”.</span><div class="v224_901"></div><div class="name"></div><input class="v235_1172" required maxlength="6"></input><span class="v235_1173">Área do pavimento térreo (m²):</span><input class="v235_1168" required maxlength="6"></input><span class="v235_1169">Número de pavimentos tipo:</span><input class="v235_1166" required maxlength="6"></input><span class="v235_1167">Área por pavimento tipo (m²):</span>
-   <input type="number" value= "100" id="areatotal" class="v224_1341" placeholder="Ex.: 100" required maxlength="6" onchange="updatechart()"></input>
-   <span class="v224_1342">Área total construída (m²):</span><div class="v238_840"></div><button name="Residencial" class="v238_841">Residencial</button><div class="v238_846"></div><button class="v238_847">Comercial</button><div class="v238_848"></div><button class="v238_849">HIS</button><div class="v224_887"></div><div id="container"></div>
+   <div class="v224_881"><div class="dadosBox"></div><div class="v224_883"></div><a href="home.html" class="v224_884">home</a><a href="sobre.html" class="v224_885">sobre</a><a href="dados.html" class="v224_886">dados</a><div class="v224_888"></div><span class="v224_889">Dados básicos do projeto</span><div class="v224_891"></div><span class="v224_892">Resultados</span>
+   <span class="v224_895">Para gerar os resultados, clique na tipologia escolhida, considerando os padrões de projeto comportados pela FCARB. Leia mais na seção “sobre”, em "escolha da tipologia". Importante: Os resultados estão em kg CO2eq.</span>
+   <span class="v123_100">Para estimar a emissão de CO2 de todo o edifício a partir de sua área:</span>
+   <span class="v123_101">Utilize ponto para decimais (Ex.: 120.50)</span>
+   <span class="v123_102">Para estimar a emissão de CO2 de um pavimento tipo:</span>
+   <span class="v123_103">Impacto por material na edificação (kg CO2eq)</span>
+   <span class="v123_104">Impacto por material no pavimento tipo (kg CO2eq)</span>
+   <span class="v123_105">Obs.: "Concreto" acima representa o concreto de 25 MPa utilizado para a infraestrutura da edificação, enquanto itens como cimento, areia e brita são referentes a supra estrutura, e por isso estão discriminados separadamente.
+    <br> Obs. 2: Os números acima representam uma estimativa baseada em projetos padrão comumente executados no Brasil, com valores arredondados. </span>
+    <div class="v224_901"></div><div class="name"></div>
+   
+   
+   <input type="text" id="areadopav" class="v235_1166" placeholder="Ex.:50.52" required maxlength="6"></input><span class="v235_1167">Área por pavimento tipo (m²):</span>
+   <input type="text" id="areatotal" class="v224_1341" placeholder="Ex.: 1000" required maxlength="6" onchange="updatechart()"></input>
+   <span class="v224_1342">Área total construída (m²):</span>
+   <div class="v224_887"></div><div id="container"></div>
    <div class="v102_logo"></div></div></div>
+   <div class="1001">
+    
+    <input type="button" class="botaoresidencial" onClick="multiplyBy1()"  value=  "   Residencial  "/>
+
+    <input type="button" class="botaocomercial" onClick="multiplyBy2()"  value=  "   Comercial  "/>
+
+    <input type="button" class="botaoHIS" onClick="multiplyBy3()"  value=  "   HIS  "/>
+    
+    
+    <p class="tr1"><br>
+      Aço CA-50: <span class="resid_aço" id = "resultaço"></span><br>
+      Concreto: <span class="resid_concreto" id="resultconcreto"></span><br>
+      Cimento: <span class="resid_cimento" id="resultcimento"></span><br>
+      Areia: <span class="resid_areia" id="resultareia"></span><br>
+      Brita: <span class="resid_brita" id="resultbrita"></span><br>
+      Compensado: <span class="resid_compensado" id="resultcompensado"></span><br>
+      Bloco cerâmico: <span class="resid_blceramico" id="resultblceramico"></span><br>
+      Bloco de concreto: <span class="resid_blconcreto" id="resultblconcreto"></span><br>
+      </p>
+   </div>
+    
+    <p class="tc1"> <br>
+      Aço CA-50: <span class="comerc_aço" id = "resultaço2"></span><br>
+      Concreto: <span class="comerc_concreto" id="resultconcreto2"></span><br>
+      Cimento: <span class="comerc_cimento" id="resultcimento2"></span><br>
+      Areia: <span class="comerc_areia" id="resultareia2"></span><br>
+      Brita: <span class="comerc_brita" id="resultbrita2"></span><br>
+      Compensado: <span class="comerc_compensado" id="resultcompensado2"></span><br>
+      Bloco cerâmico: <span class="comerc_blceramico" id="resultblceramico2"></span><br>
+      Bloco de concreto: <span class="comerc_blconcreto" id="resultblconcreto2"></span><br>
+      </p>
+   </div>
+    
+    <p class="th1"> <br>
+      Aço CA-50: <span class="HIS_aço" id = "resultaço3"></span><br>
+      Concreto: <span class="HIS_concreto" id="resultconcreto3"></span><br>
+      Cimento: <span class="HIS_cimento" id="resultcimento3"></span><br>
+      Areia: <span class="HIS_areia" id="resultareia3"></span><br>
+      Brita: <span class="HIS_brita" id="resultbrita3"></span><br>
+      Compensado: <span class="HIS_compensado" id="resultcompensado3"></span><br>
+      Bloco cerâmico: <span class="HIS_blceramico" id="resultblceramico3"></span><br>
+      Bloco de concreto: <span class="HIS_blconcreto" id="resultblconcreto3"></span><br>
+      </p>
+   </div>
+
+   <p class="tr2"><br>
+    Aço CA-50: <span class="resid_aço2" id = "resultaço4"></span><br>
+    Concreto: <span class="resid_concreto2" id="resultconcreto4"></span><br>
+    Cimento: <span class="resid_cimento2" id="resultcimento4"></span><br>
+    Areia: <span class="resid_areia2" id="resultareia4"></span><br>
+    Brita: <span class="resid_brita2" id="resultbrita4"></span><br>
+    Compensado: <span class="resid_compensado2" id="resultcompensado4"></span><br>
+    Bloco cerâmico: <span class="resid_blceramico2" id="resultblceramico4"></span><br>
+    Bloco de concreto: <span class="resid_blconcreto2" id="resultblconcreto4"></span><br>
+    </p>
+ </div>
+  
+  <p class="tc2"> <br>
+    Aço CA-50: <span class="comerc_aço2" id = "resultaço5"></span><br>
+    Concreto: <span class="comerc_concreto2" id="resultconcreto5"></span><br>
+    Cimento: <span class="comerc_cimento2" id="resultcimento5"></span><br>
+    Areia: <span class="comerc_areia2" id="resultareia5"></span><br>
+    Brita: <span class="comerc_brita2" id="resultbrita5"></span><br>
+    Compensado: <span class="comerc_compensado2" id="resultcompensado5"></span><br>
+    Bloco cerâmico: <span class="comerc_blceramico2" id="resultblceramico5"></span><br>
+    Bloco de concreto: <span class="comerc_blconcreto2" id="resultblconcreto5"></span><br>
+    </p>
+ </div>
+  
+  <p class="th2"> <br>
+    Aço CA-50: <span class="HIS_aço2" id = "resultaço6"></span><br>
+    Concreto: <span class="HIS_concreto2" id="resultconcreto6"></span><br>
+    Cimento: <span class="HIS_cimento2" id="resultcimento6"></span><br>
+    Areia: <span class="HIS_areia2" id="resultareia6"></span><br>
+    Brita: <span class="HIS_brita2" id="resultbrita6"></span><br>
+    Compensado: <span class="HIS_compensado2" id="resultcompensado6"></span><br>
+    Bloco cerâmico: <span class="HIS_blceramico2" id="resultblceramico6"></span><br>
+    Bloco de concreto: <span class="HIS_blconcreto2" id="resultblconcreto6"></span><br>
+    </p>
+ </div>
+
+  
+
 
   <!-- LINKS
     Charts Docs - https://www.chartjs.org/docs/latest/
@@ -115,44 +249,28 @@ function updatechart() {
      -->
   </body>
   </html> <br/><br/> <style>* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 body {
   font-size: 14px;
 
 }
-.chartMenu {
-        width: 848px;
-        height: 40px;
-        background: #1A1A1A;
-        color: rgba(230,245,235,1);
-      
-      }
-      .chartMenu p {
-        padding: 10px;
-        font-size: 20px;
-        
 
-      }
-      .chartCard {
-      
-        display: flex;
-        position: absolute;
-        left: 550px;
-        top: 360px;
-        align-items: left;
-        justify-content: left;
-        
-      }
-      .chartBox {
-        width: 850px;
-        padding: 20px;
-        border-radius: 20px;
-        border: solid 3px rgba(0,150,57,1);
-        background: white;
-        min-width: 0
-        
-        
+.resultBox {
+  top: 300px;
+  left: 537px;
+  position: absolute;
+  width: 857px;
+  height: 743px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 3px solid rgba(102,192,136,1);
+  background: #66C088;
+  min-width: 0
+       
+    
       }
  .v102_logo {
   width: 307px;
@@ -191,9 +309,9 @@ body {
   left: 0px;
   overflow: hidden;
 }
-.v224_882 {
+.dadosBox {
   width: 490px;
-  height: 403px;
+  height: 303px;
   background: rgba(102,192,136,1);
   opacity: 1;
   position: absolute;
@@ -310,14 +428,14 @@ body {
   text-align: center;
 }
 .v224_895 {
-  width: 421px;
-  color: rgba(179,224,196,1);
+  width: 750px;
+  color: #B3E0C4;
   position: absolute;
-  top: 547px;
-  left: 51px;
+  top: 370px;
+  left:605px;
   font-family: Roboto;
   font-weight: Italic;
-  font-size: 16px;
+  font-size: 14px;
   opacity: 1;
   text-align: center;
 }
@@ -352,7 +470,7 @@ gap: 8px;
 position: absolute;
 background-color: #ffffff;
 border: 2px solid #d9d9d9;
-top:490px;
+top:590px;
 left:350px;
 font-size:
 font-family:
@@ -364,7 +482,7 @@ color: #000000;
   width: 227px;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 495px;
+  top: 595px;
   left: 58px;
   font-family: Roboto;
   font-weight: Regular;
@@ -391,7 +509,7 @@ gap: 8px;
 position: absolute;
 background-color: #ffffff;
 border: 2px solid #d9d9d9;
-top:446px;
+top:546px;
 left:350px;
 font-size:
 font-family:
@@ -402,7 +520,7 @@ color: #000000;
   width: 238px;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 450px;
+  top: 550px;
   left: 58px;
   font-family: Roboto;
   font-weight: Regular;
@@ -429,7 +547,7 @@ gap: 8px;
 position: absolute;
 background-color: #ffffff;
 border: 2px solid #d9d9d9;
-top:402px;
+top:502px;
 left:350px;
 font-size:
 font-family:
@@ -440,7 +558,7 @@ color: #000000;
   width: 220px;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 406px;
+  top: 506px;
   left: 58px;
   font-family: Roboto;
   font-weight: Regular;
@@ -467,7 +585,7 @@ gap: 8px;
 position: absolute;
 background-color: #ffffff;
 border: 2px solid #d9d9d9;
-top:358px;
+top: 410px;
 left:350px;
 font-size:
 font-family:
@@ -478,99 +596,13 @@ color: #000000;
   width: 191px;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 361px;
+  top: 413px;
   left: 58px;
   font-family: Roboto;
   font-weight: Regular;
   font-size: 16px;
   opacity: 1;
   text-align: left;
-}
-.v238_840 {
-  width: 126px;
-  height: 38px;
-  background: rgba(230,245,235,1);
-  opacity: 1;
-  position: absolute;
-  top: 617px;
-  left: 62px;
-  border: 2px solid rgba(0,150,57,1);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  overflow: hidden;
-}
-.v238_841 {
-  width: 77px;
-  color: rgba(0,150,57,1);
-  position: absolute;
-  top: 627px;
-  left: 86px;
-  font-family: Roboto;
-  font-weight: Regular;
-  font-size: 14px;
-  opacity: 1;
-  text-align: center;
-}
-.v238_846 {
-  width: 126px;
-  height: 38px;
-  background: rgba(230,245,235,1);
-  opacity: 1;
-  position: absolute;
-  top: 617px;
-  left: 203px;
-  border: 2px solid rgba(0,150,57,1);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  overflow: hidden;
-}
-.v238_847 {
-  width: 77px;
-  color: rgba(0,150,57,1);
-  position: absolute;
-  top: 627px;
-  left: 227px;
-  font-family: Roboto;
-  font-weight: Regular;
-  font-size: 14px;
-  opacity: 1;
-  text-align: center;
-}
-.v238_848 {
-  width: 126px;
-  height: 38px;
-  background: rgba(230,245,235,1);
-  opacity: 1;
-  position: absolute;
-  top: 617px;
-  left: 344px;
-  border: 2px solid rgba(0,150,57,1);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  overflow: hidden;
-}
-.v238_849 {
-  width: 126px;
-  height: 38px;
-  color: rgba(0,150,57,1);
-  border-style: outset;
-  border-radius: 8px;
-  border-color: #009639;
-  background-color: #e6f5eb;
-  position: absolute;
-  top: 617px;
-  left: 344px;
-  font-family: Roboto;
-  font-weight: Regular;
-  font-size: 14px;
-  opacity: 1;
-  text-align: center;
 }
 .v224_887 {
   width: 307px;
@@ -585,6 +617,175 @@ color: #000000;
   left: 21px;
   overflow: hidden;
 }
-
+.botaoresidencial {
+  border: none;
+  padding: 7px;
+  border-radius: 10px;
+  position: absolute;
+  top: 420px;
+  left: 620px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 16px;
+  color: #009639;
+  width: 186px;
+  height: 38px;
+}
+.botaocomercial {
+  border: none;
+  padding: 7px;
+  border-radius: 10px;
+  position: absolute;
+  top: 420px;
+  left: 870px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 16px;
+  color: #009639;
+  width: 186px;
+  height: 38px;
+}
+.botaoHIS {
+  border: none;
+  padding: 7px;
+  border-radius: 10px;
+  position: absolute;
+  top: 420px;
+  left: 1120px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 16px;
+  color: #009639;
+  width: 186px;
+  height: 38px;
+}
+.tr1 {
+  color: white;
+  position: absolute;
+  top: 520px;
+  left: 620px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 14px;
+}
+.tc1 {
+  color: white;
+  position: absolute;
+  top: 520px;
+  left: 870px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 14px;
+}
+.th1 {
+  color: white;
+  position: absolute;
+  top: 520px;
+  left: 1120px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 14px;
+}
+.v123_100 {
+width: 435px;
+  color: #B3E0C4;
+  position: absolute;
+  top: 365px;
+  left: 55px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 14px;
+  opacity: 1;
+  text-align: center;  
+}
+.v123_101 {
+width: 435px;
+  color: #B3E0C4;
+  position: absolute;
+  top: 385px;
+  left: 55px;
+  font-family: 'Roboto';
+  font-style: italic;
+  font-size: 12px;
+  opacity: 1;
+  text-align: center;  
+}
+.v123_102 {
+width: 435px;
+  color: #B3E0C4;
+  position: absolute;
+  top: 465px;
+  left: 55px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 14px;
+  opacity: 1;
+  text-align: center;  
+}
+.v123_103 {
+width: 435px;
+  color: white;
+  position: absolute;
+  top: 500px;
+  left: 747px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 18px;
+  opacity: 1;
+  text-align: center;  
+}
+.v123_104 {
+width: 435px;
+  color: white;
+  position: absolute;
+  top: 730px;
+  left: 747px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 18px;
+  opacity: 1;
+  text-align: center;  
+}
+.tr2 {
+  color: white;
+  position: absolute;
+  top: 750px;
+  left: 620px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 14px;
+}
+.tc2 {
+  color: white;
+  position: absolute;
+  top: 750px;
+  left: 870px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 14px;
+}
+.th2 {
+  color: white;
+  position: absolute;
+  top: 750px;
+  left: 1120px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 14px;
+}
+.v123_105 {
+  width: 750px;
+  color: #B3E0C4;
+  position: absolute;
+  top: 950px;
+  left:605px;
+  font-family: Roboto;
+  font-weight: Italic;
+  font-size: 14px;
+  opacity: 1;
+  text-align: center;
+}
 </style>
 
+
+       
